@@ -111,8 +111,9 @@ void HomeCellArea::Display()
 	Card temp;
 	for (int i = 0; i < 4; i++) // should go through each of the home cells
 	{
-		if (GetTop(i).GetRank() == temp.Ace - 1) // fix this equation if it doesn't work 
-			cout << "empty space" << endl;
+
+		if (GetEmpty(i) == true) // fix this equation if it doesn't work 
+			cout << "empty space   ";
 		else
 		{
 			cout << "    " << endl;

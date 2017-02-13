@@ -36,31 +36,58 @@ Board::~Board()
 
 void Board::PlayA()
 {
+	HANDLE hStdout = 0;
 	COORD cursor;
 
-	cursor.X = 5;
+	cursor.X = 0;
 	cursor.Y = 5;
+
+	hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(hStdout, cursor);
 
 	for (int i = 0; i < 8; i++)
 	{
-		m_play_area.Display(i); // probably wont work will have to fix the display
+		cout << "COLUMN " << i + 1 << "    "; // 4 spaces
+	}
+
+	cursor.X = 0;
+	cursor.Y = 6;
+	SetConsoleCursorPosition(hStdout, cursor);
+
+	 int temp = 0;
+
+	for (int i = 0; i < 8; i++)
+	{
+		m_play_area.getStack();//.Display(i); // probably wont work will have to fix the display
+
+		temp += 12;
+
+		cursor.X = temp;
+		cursor.Y = 6;
+		SetConsoleCursorPosition(hStdout, cursor);
 	}
 }
 
 void Board::HomeA() // should display the home area
 {
+	HANDLE hStdout = 0;
 	COORD cursor;
 
-	cursor.X = 15;
-	cursor.Y = 5;
+	cursor.X = 55;
+	cursor.Y = 0;
 
+	hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(hStdout, cursor);
 	for (int i = 0; i < 4; i++)
-		cout << "HOME CELL " << i + 1 << "  ";
+		cout << "HOME CELL " << i + 1 << "   ";
 
 	cout << endl; 
 
-	//cursor.X = 40;
-	//cursor.Y = 1;
+	cursor.X = 55;
+	cursor.Y = 1;
+
+	SetConsoleCursorPosition(hStdout, cursor);
+
 	m_home_cell_Area.Display();
 
 }

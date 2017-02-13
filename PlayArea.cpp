@@ -35,6 +35,6 @@ void PlayArea::Display(int index)
 {
 	//for (int i = 0; i < 8; i++) // this controls the column (Array)
 	//{
-		m_stack[index].Display(); // maybe this'll work
+	m_stack[index].Display(); // maybe this'll work
 	//}
 }
